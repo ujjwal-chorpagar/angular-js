@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller = "myCtrl">
+<p>Firstname: {{ firstname }}
+   Lastname: {{ lastname }}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+	$scope.firstname = "Rahul";
+	$scope.lastname = "Raut";
+});
+</script>
+</body>
+</html>
