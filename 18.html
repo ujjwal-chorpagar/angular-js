@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" w3-test-directive>	
+</div>
+<script>
+	var app = angular.module("myApp", []);
+	app.directive("w3-test-directive", Function(){
+	return {
+		template : "I was made in a directive constructor!!"
+	};
+});
+</script>
+</body>
+</html>
