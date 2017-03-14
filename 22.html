@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="quantity=1;prices=5">
+	Quantity: <input type="number" ng-model="quantity">
+	Costs: <input type="number" ng-model="prices">
+	Total in dollar: {{ quantity * prices }}
+</div>
+</body>
+</html>
