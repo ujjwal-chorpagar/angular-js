@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>anguar js</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+	{{content}}
+</div>
+<p>The $http service executes different functions on success and failure.</p>
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope, $http) {
+		$http.get("wrongfilename.html")
+		.then(function(response) {
+			$scope.content = response.data;
+		}, function(response) {
+			$scope.content = "Something went wrong";
+		});
+	});
+</script>
+</body>
+</html>
