@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>Select a car:</p>
+
+	<select ng-model="selectedcar">
+		<option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+	</select>
+
+	<h1>Selected car: {{selectedcar}}</h1>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope) {
+		$scope.cars = [
+		{model: "Ford Mustang", color: "red"},
+		{model: "Fiat 500", color:"white"},
+		{model: "Volvo XC90", color:"black"}
+		];
+	});
+</script>
+</body>
+</html>

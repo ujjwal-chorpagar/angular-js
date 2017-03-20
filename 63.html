@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid grey;
+		border-collapse: collapse;
+		padding: 5px;
+	}
+	table tr:nth-child(odd) {
+		background-color: #f1f1f1;
+	}
+	tabke tr:nth-child(even) {
+		background-color: #ffffff;
+	}
+</style>
+
+	<title>angular js</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="customerCtrl">
+	<table>
+		<tr ng-repeat="x in names">
+			<td>{{ x.Name }}</td>
+			<td>{{ x.country }}</td>
+		</tr>
+	</table>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('customerCtrl', function($scope, $http) {
+		$http.get("customer.php")
+		.then(function (response) {$sccope.names = response.data.records;});
+	});
+</script>
+</body>
+</html>
