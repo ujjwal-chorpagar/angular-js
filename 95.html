@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="">
+	<p>Try leaving the first input field blank:</p>
+	<form name="myForm">
+		<p>Name: <input type="text" name="myName" ng-model="myName" required></p>
+		<span ng-show="myForm.myName.$touched && myForm.myName.$invalid">The name is required.</span>
+		<p>Address: <input type="text" name="myAddress" ng-model="myAddress" required></p>
+	</form>
+</div>
+</body>
+</html>

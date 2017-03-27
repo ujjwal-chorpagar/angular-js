@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<p>Try writing the input field:</p>
+<form name="myForm">
+<input name="myInput" ng-model="myInput" required my-directive>
+</form>
+
+<p>The input valid state is: </p>
+<h1>{{myForm.myInput.$valid}}</h1>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.directive('myDirective', function() {
+		return{
+			require: 'ngModel',
+			link: function(scope, element, attr, mCtrl) {
+				function myValidation(value)
+				{
+					if (value.indexOf("next") > -1) {
+						mCtrl.$setValidity('NEXT', true);
+					} else {
+						mCtrl.$setValidity('NEXT', false);
+					}
+					return value;
+				}
+				mCtrl.$parsers.push(myValidation);
+			}
+		};
+	});
+</script>
+</body>
+</html>
